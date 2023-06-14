@@ -1,7 +1,8 @@
-<hr class="featurette-divider">
-<div class="container mt-3">
 
-    <div class="row">
+<div class="container mt-5">
+    <hr class="featurette-divider">
+
+    <div class="row mt-5 mb-5">
         <div class="col-lg-4 mb-2">
             <div class="card card-margin p-3">
                 <div class="card-body pt-0">

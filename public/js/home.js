@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    /**
+     * Bloque de codigo para el carousel dentro de la vista home
+     */
     $(".owl-carousel").owlCarousel({
         loop: true,
         margin: 10,
@@ -27,12 +30,7 @@ $(document).ready(function () {
         },
     });
 
-    owl.on("mousewheel", ".owl-stage", function (e) {
-        if (e.deltaY > 0) {
-            owl.trigger("next.owl");
-        } else {
-            owl.trigger("prev.owl");
-        }
-        e.preventDefault();
-    });
+    /**
+     * Fin de bloque de codigo de carousel
+     */
 });

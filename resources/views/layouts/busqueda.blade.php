@@ -1,4 +1,4 @@
-<div class="container mt-3 mb-5 p-2">
+<div class="container mt-4 mb-5 p-2">
     <div class="card">
         <p class="card-header busquedaPersonalizadaHead rounded border fw-bold">Búsqueda personalizada</p>
         <div class="card-body rounded border shadow">

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductosController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,4 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Generamos la vista principal de la pagina
 Route::get('/', [HomeController::class , 'index'])->name('home');
+
+
+//Ruta usada para hacer una busqueda especifica de un producto por medio de un valor dado por el usuario
+Route::get('/searchProducto' , [ProductosController::class , 'searchProducto']);
+
