@@ -14,13 +14,11 @@
 
 
 @section('contenido')
-   @include('layouts.navbar')
    @include('layouts.carousel')
    @include('layouts.menus')
    @include('layouts.busqueda')
    @include('layouts.cards')
    @include('layouts.destacados')
-   @include('layouts.footer')
 @endsection
 
 

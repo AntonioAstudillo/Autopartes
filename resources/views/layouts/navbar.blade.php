@@ -2,7 +2,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow p-1 bg-body navbarColor fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand fw-bold text-uppercase" href="#"><span class="colorLogo">Auto</span>partes<span class="mx">MX</span></a>
+        <a class="navbar-brand fw-bold text-uppercase" href="{{route('home')}}"><span class="colorLogo">Auto</span>partes<span class="mx">MX</span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

@@ -15,9 +15,12 @@
                  onerror="this.src='{{asset('img/404.jpg')}}';"
                  class="card-img-top" alt="Imagen del producto {{$destacado->codigo}}">
                 <div class="card-body">
-                    <h5 class="card-title text-center">{{$destacado->codigo}}</h5>
                     <ul>
+                        <li>Código: <span class="fw-bold text-dark">{{$destacado->codigo}}</span> </li>
                         <li>Familia: <span class="fw-bold text-dark">{{$destacado->familia}}</span> </li>
+                        @if($destacado->grupo !== '')
+                           <li>Grupo: <span class="fw-bold text-dark">{{$destacado->grupo}}</span></li>
+                        @endif
                         <li>Empaque: <span class="fw-bold text-dark">{{$destacado->empaque}}</span></li>
                         <li>Posición: <span class="fw-bold text-dark">{{$destacado->posicion}}</span></li>
                         @if($destacado->diametroInterior !== '')
