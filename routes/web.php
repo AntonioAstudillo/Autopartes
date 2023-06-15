@@ -1,9 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MenusController;
+use App\Http\Controllers\CatalogoController;
 use App\Http\Controllers\ProductosController;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,8 @@ Route::get('/menus/{menu}' , [MenusController::class , 'show'])->name('menus');
 //Ruta usada para hacer una busqueda especifica de un producto por medio de un valor dado por el usuario
 Route::get('/search' , [ProductosController::class , 'show'])->name('searchProducts');
 
-
 //Ruta usada para busqueda personalizada
 Route::get('/custom-search/{marca}/{submarca?}' , [ProductosController::class , 'custom_search'])->name('custom-search');
+
+
+Route::get('/catalogos/{catalogo}' , [CatalogoController::class , 'show'])->name('catalogo');
