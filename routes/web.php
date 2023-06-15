@@ -25,3 +25,7 @@ Route::get('/menus/{menu}' , [MenusController::class , 'show'])->name('menus');
 
 //Ruta usada para hacer una busqueda especifica de un producto por medio de un valor dado por el usuario
 Route::get('/search' , [ProductosController::class , 'show'])->name('searchProducts');
+
+
+//Ruta usada para busqueda personalizada
+Route::get('/custom-search/{marca}/{submarca?}' , [ProductosController::class , 'custom_search'])->name('custom-search');

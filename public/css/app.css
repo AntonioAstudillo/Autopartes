@@ -13,6 +13,15 @@
     margin-right: 50px;
 }
 
+.letra404{
+    background-color:#30475E ;
+    color: white;
+}
+
+.letra404:hover{
+    color: white;
+    opacity: .4;
+}
 
 .posicionDiv{
     position: fixed;

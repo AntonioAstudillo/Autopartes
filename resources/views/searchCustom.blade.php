@@ -18,8 +18,10 @@
                                 class="card-img-top" alt="Imagen del producto ">
                                 <div class="card-body">
                                     <ul style="list-style: none;">
-                                         <li>Código: <span class="fw-bold text-dark">{{$producto->codigo}}</span> </li>
+                                        <li>Código: <span class="fw-bold text-dark">{{$producto->codigo}}</span> </li>
                                         <li>Familia: <span class="fw-bold text-dark">{{$producto->familia}}</span></li>
+                                        <li>Marca: <span class="fw-bold text-dark">{{$producto->marca}}</span></li>
+                                        <li>Submarca: <span class="fw-bold text-dark">{{$producto->submarca}}</span></li>
                                         @if($producto->grupo !== '')
                                             <li>Grupo: <span class="fw-bold text-dark">{{$producto->grupo}}</span></li>
                                         @endif
@@ -45,13 +47,8 @@
                 </div>
             </div>
         </div>
-
-        @php
-            $valorBusqueda = str_replace(' ' , '-' , $valorBusqueda);
-        @endphp
-
         <div class="d-flex justify-content-center">
-            {{ $productos->appends(['valorSearch' => $valorBusqueda])->links() }}
+            {{ $productos->links() }}
         </div>
     </main>
 @endsection

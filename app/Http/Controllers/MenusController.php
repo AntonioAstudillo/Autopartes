@@ -16,6 +16,10 @@ class MenusController extends Controller
             ->orWhere('familia', '=', $menu)
             ->paginate(21);
 
+        if($productos->total()<=0){
+            return view('404');
+        }
+
         return view('busquedaMenus' , ['productos' => $productos]);
 
     }

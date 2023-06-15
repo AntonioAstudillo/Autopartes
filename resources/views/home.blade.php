@@ -8,17 +8,17 @@
 @endsection
 
 @section('tituloPagina')
-   HOAutopartes
+  Búsqueda personalizada
 @endsection
 
 
 
 @section('contenido')
-   @include('layouts.carousel')
-   @include('layouts.menus')
-   @include('layouts.busqueda')
-   @include('layouts.cards')
-   @include('layouts.destacados')
+    @include('layouts.carousel')
+    @include('layouts.menus')
+    <livewire:busqueda-personalizada/>
+    @include('layouts.cards')
+    @include('layouts.destacados')
 @endsection
 
 
