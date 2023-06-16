@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Producto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -64,5 +65,14 @@ class ProductosController extends Controller
         }
 
         return view('searchCustom' , ['productos' => $productos]);
+    }
+
+
+    public function details($producto){
+
+        $dataProducto = Producto::where('codigo' , $producto)->get();
+        $detalleProducto = DB::table('productodetalle')->where('producto' , '=' , $producto)->get();
+
+        return view('details' , ['productos' => $dataProducto , 'detalleProducto' => $detalleProducto]);
     }
 }

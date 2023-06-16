@@ -23,8 +23,8 @@
                         Catálogos
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                        <li><a class="dropdown-item" href="#">Frenos</a></li>
-                        <li><a class="dropdown-item" href="#">Suspensión</a></li>
+                        <li><a class="dropdown-item" href="{{route('catalogo' , ['catalogo' => 'Frenos'])}}">Frenos</a></li>
+                        <li><a class="dropdown-item" href="{{route('catalogo' , ['catalogo' => 'Suspension'])}}">Suspensión</a></li>
                         <li><a class="dropdown-item" href="#">Descargar</a></li>
                     </ul>
                 </li>

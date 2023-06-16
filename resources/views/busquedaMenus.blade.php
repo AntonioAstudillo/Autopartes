@@ -36,7 +36,7 @@
                                         <li>Catálogo: <span class="fw-bold text-dark">{{$producto->catalogo}}</span></li>
                                     </ul>
                                     <div class="d-flex justify-content-center">
-                                        <a href="#" class="btn botonBusqueda text-center">Detalles</a>
+                                        <a href="{{route('details' , ['producto' => $producto->codigo])}}" class="btn botonBusqueda text-center">Detalles</a>
                                     </div>
                                 </div>
                             </div>

@@ -8,6 +8,13 @@
 
  */
 
+
+.detalleColor{
+    background-color: #F05454 ;
+    color:white;
+    font-weight: bold;
+}
+
 .productoDestacado{
 
     margin-right: 50px;
