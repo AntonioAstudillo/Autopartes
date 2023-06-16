@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-md-6 col-lg-6  col-xs-12">
                 <div class="card bg-dark text-white">
-                    <img  src="{{asset('img/productos') . '/' . $productos[0]->imagen}}" class="card-img img-fluid img-thumbnail" height="50px">
+                    <img data-bs-toggle="modal" data-bs-target="#imagenModal"  src="{{asset('img/productos') . '/' . $productos[0]->imagen}}" class="card-img img-fluid img-thumbnail" height="50px">
                 </div>
             </div>
             <div class="col-md-6 col-lg-6 col-xs-12 mt-3">
@@ -162,4 +162,10 @@
             </div>
         </div>
     </main>
+    <!-- Modal -->
+    <div class="modal fade" id="imagenModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl" >
+            <img  src="{{asset('img/productos') . '/' . $productos[0]->imagen}}" class="card-img img-fluid img-thumbnail">
+        </div>
+    </div>
 @endsection
