@@ -85,6 +85,7 @@ class ProductosController extends Controller
         $detalleProducto = DB::table('productodetalle')->where('producto' , '=' , $producto)->get();
 
 
+
         if($dataProducto->count()<=0 || $detalleProducto->count()<=0){
             return view('404');
         }

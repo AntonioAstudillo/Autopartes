@@ -259,4 +259,6 @@
             <img  src="{{asset('img/productos') . '/' . $productos[0]->imagen}}" class="card-img img-fluid img-thumbnail">
         </div>
     </div>
-@endsection
+
+
+    @endsection

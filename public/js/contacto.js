@@ -1,7 +1,3 @@
-window.onload = main;
-
-function main() {}
-
 function onSubmit(token) {
     esconderBTNEnviar();
     let formulario = document.getElementById("formContacto");
