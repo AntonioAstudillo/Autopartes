@@ -8,21 +8,208 @@
 @section('contenido')
    <main class="container mt-5 p-5">
         <div class="row">
-            <div class="col-md-6 col-lg-6  col-xs-12">
-                <div class="card bg-dark text-white">
-                    <img data-bs-toggle="modal" data-bs-target="#imagenModal"  src="{{asset('img/productos') . '/' . $productos[0]->imagen}}" class="card-img img-fluid img-thumbnail" height="50px">
+            <div class="col-md-6 col-lg-6  col-xs-12 mt-3">
+                <div class="card bg-dark text-white ">
+                    <img data-bs-toggle="modal" data-bs-target="#imagenModal"  src="{{asset('img/productos') . '/' . $productos[0]->imagen}}" class="card-img img-fluid img-thumbnail " height="50px">
                 </div>
             </div>
             <div class="col-md-6 col-lg-6 col-xs-12 mt-3">
-                   <table class="table table-bordered">
+                <div class="col-md-12 col-lg-12  col-xs-12">
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="modal-header detalleColor d-flex justify-content-center">
+                            <h6 class="modal-title fw-bold" id="exampleModalLabel">Información General</h6>
+                        </div>
+
+                        <div class="modal-content">
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-12  col-md-12 col-12 table-responsive">
+                                            <table class="table table-bordered table-sm text-center mb-0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="3">
+                                                            <div class="d-flex flex-column">
+                                                                <span class="heading d-block text-capitalize text-dark fw-bold text-dark fw-bold">Código</span>
+                                                                @if ($productos[0]->codigo !== '')
+                                                                    <span class="subheadings text-capitalize">{{$productos[0]->codigo}}</span>
+                                                                @else
+                                                                    <span class="subheadings text-capitalize">N/D</span>
+                                                                @endif
+                                                            </div>
+                                                        </td>
+
+                                                        <td colspan="3">
+                                                            <div class="d-flex flex-column">
+                                                                <span class="heading d-block text-capitalize text-dark fw-bold">Familia</span>
+                                                                @if ($productos[0]->familia !== '')
+                                                                    <span class="subheadings text-capitalize">{{$productos[0]->familia}}</span>
+                                                                @else
+                                                                    <span class="subheadings text-capitalize">N/D</span>
+                                                                @endif
+                                                            </div>
+                                                        </td>
+
+                                                        <td colspan="3">
+                                                            <div class="d-flex flex-column">
+                                                                <span class="heading d-block text-capitalize text-dark fw-bold">SubFamilia</span>
+                                                                @if ($productos[0]->grupo !== '')
+                                                                    <span class="subheadings text-capitalize">{{$productos[0]->grupo}}</span>
+                                                                @else
+                                                                    <span class="subheadings text-capitalize">N/D</span>
+                                                                @endif
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="3">
+                                                            <div class="d-flex flex-column">
+                                                                <span class="heading d-block fw-bold text-capitalize">Empaque</span>
+                                                                @if ($productos[0]->empaque !== '')
+                                                                    <span class="subheadings text-capitalize">{{$productos[0]->empaque}}</span>
+                                                                @else
+                                                                    <span class="subheadings text-capitalize">N/D</span>
+                                                                @endif
+                                                            </div>
+                                                        </td>
+
+                                                        <td colspan="3">
+                                                            <div class="d-flex flex-column">
+                                                                <span class="heading d-block fw-bold  text-capitalize">UXV</span>
+                                                                @if ($productos[0]->uxv !== '')
+                                                                    <span class="subheadings text-capitalize">{{$productos[0]->uxv}}</span>
+                                                                @else
+                                                                    <span class="subheadings text-capitalize">N/D</span>
+                                                                @endif
+                                                            </div>
+                                                        </td>
+
+                                                        <td colspan="3">
+                                                            <div class="d-flex flex-column">
+                                                                <span class="heading d-block fw-bold  text-capitalize">Posición</span>
+                                                                @if ($productos[0]->posicion !== '')
+                                                                    <span class="subheadings text-capitalize">{{$productos[0]->posicion}}</span>
+                                                                @else
+                                                                    <span class="subheadings text-capitalize">N/D</span>
+                                                                @endif
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="3">
+                                                            <div class="d-flex flex-column">
+                                                                <span class="heading d-block  fw-bold text-capitalize">Cubre Polvo</span>
+                                                                @if ($productos[0]->tipoCubrePolvo !== '')
+                                                                    <span class="subheadings text-capitalize">{{$productos[0]->tipoCubrePolvo}}</span>
+                                                                @else
+                                                                    <span class="subheadings text-capitalize">N/D</span>
+                                                                @endif
+                                                            </div>
+                                                        </td>
+                                                        <td colspan="3">
+                                                            <div class="d-flex flex-column">
+                                                                <span class="heading d-block fw-bold  text-capitalize">Tipo Pistón</span>
+                                                                @if ($productos[0]->tipoPiston !== '')
+                                                                    <span class="subheadings text-capitalize">{{$productos[0]->tipoPiston}}</span>
+                                                                @else
+                                                                    <span class="subheadings text-capitalize">N/D</span>
+                                                                @endif
+                                                            </div>
+                                                        </td>
+
+                                                        <td colspan="3">
+                                                            <div class="d-flex flex-column">
+                                                                <span class="heading d-block fw-bold  text-capitalize">Código Equivalente</span>
+                                                                @if ($productos[0]->codigoEquivalente !== '')
+                                                                    <span class="subheadings text-capitalize">{{$productos[0]->codigoEquivalente}}</span>
+                                                                @else
+                                                                    <span class="subheadings text-capitalize">N/D</span>
+                                                                @endif
+                                                            </div>
+                                                        </td>
+
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="5">
+                                                            <div class="d-flex flex-column">
+                                                                <span class="heading d-block fw-bold  text-capitalize">Lado</span>
+                                                                @if ($productos[0]->lado !== '')
+                                                                    <span class="subheadings text-capitalize">{{$productos[0]->lado}}</span>
+                                                                @else
+                                                                    <span class="subheadings text-capitalize">N/D</span>
+                                                                @endif
+                                                            </div>
+                                                        </td>
+                                                        <td colspan="5">
+                                                            <div class="d-flex flex-column">
+                                                                <span class="heading d-block  fw-bold text-capitalize">Diámetro Interior</span>
+                                                                @if ($productos[0]->diametroInterior !== '')
+                                                                    <span class="subheadings text-capitalize">{{$productos[0]->diametroInterior}}</span>
+                                                                @else
+                                                                    <span class="subheadings text-capitalize">N/D</span>
+                                                                @endif
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="5">
+                                                            <div class="d-flex flex-column">
+                                                                <span class="heading d-block fw-bold  text-capitalize">Altura</span>
+                                                                @if ($productos[0]->altura !== '')
+                                                                    <span class="subheadings text-capitalize">{{$productos[0]->altura}}</span>
+                                                                @else
+                                                                    <span class="subheadings text-capitalize">N/D</span>
+                                                                @endif
+                                                            </div>
+                                                        </td>
+
+                                                        <td colspan="5">
+                                                            <div class="d-flex flex-column">
+                                                                <span class="heading d-block fw-bold  text-capitalize">Catálogo</span>
+                                                                @if ($productos[0]->catalogo !== '')
+                                                                    <span class="subheadings text-capitalize">{{$productos[0]->catalogo}}</span>
+                                                                @else
+                                                                    <span class="subheadings text-capitalize">N/D</span>
+                                                                @endif
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="9">
+                                                            <div class="d-flex flex-column">
+                                                                <span class="heading d-block fw-bold  text-capitalize">Descripción</span>
+                                                                @if ($productos[0]->descripcion !== '')
+                                                                    <span class="subheadings text-capitalize">{{$productos[0]->descripcion}}</span>
+                                                                @else
+                                                                    <span class="subheadings text-capitalize">N/D</span>
+                                                                @endif
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-12 col-xs-12 mt-3 table-responsive">
+          <table class="table table-bordered">
                     <thead class="detalleColor">
                         <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Marca</th>
-                        <th scope="col">Submarca</th>
-                        <th scope="col">Modelo</th>
-                        <th scope="col">Fmsi</th>
-                        <th scope="col">NoBalata</th>
+                        <th>#</th>
+                        <th>Marca</th>
+                        <th>Submarca</th>
+                        <th>Modelo</th>
+                        <th>Fmsi</th>
+                        <th>NoBalata</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -63,105 +250,9 @@
                         @endforeach
                     </tbody>
                 </table>
-            </div>
-        </div>
-        <div class="row mt-3 card shadow p-4">
-            <div class="col-md-12 col-lg-12  col-xs-12">
-                <ul class="list-group ">
-                    @if ($productos[0]->codigo !== '')
-                        <ul class="list-group list-group-horizontal  mb-2">
-                            <li class="list-group-item detalleColor">Código</li>
-                            <li class="list-group-item list-group-item-action">{{$productos[0]->codigo}}</li>
-                        </ul>
-                    @endif
-                    @if ($productos[0]->familia !== '')
-                        <ul class="list-group list-group-horizontal mb-2">
-                            <li class="list-group-item detalleColor">Familia</li>
-                            <li class="list-group-item list-group-item-action">{{$productos[0]->familia}}</li>
-                        </ul>
-                    @endif
-
-                    @if ($productos[0]->grupo !== '')
-                        <ul class="list-group list-group-horizontal mb-2">
-                            <li class="list-group-item detalleColor">Grupo</li>
-                            <li class="list-group-item list-group-item-action">{{$productos[0]->grupo}}</li>
-                        </ul>
-                    @endif
-
-                    @if ($productos[0]->descripcion !== '')
-                        <ul class="list-group list-group-horizontal mb-2">
-                            <li class="list-group-item detalleColor">Descripción</li>
-                            <li class="list-group-item list-group-item-action">{{$productos[0]->descripcion}}</li>
-                        </ul>
-                    @endif
-
-                    @if ($productos[0]->tipoCubrePolvo !== '')
-                        <ul class="list-group list-group-horizontal mb-2">
-                            <li class="list-group-item detalleColor">Tipo cubrepolvo</li>
-                            <li class="list-group-item list-group-item-action">{{$productos[0]->tipoCubrePolvo}}</li>
-                        </ul>
-                    @endif
-
-
-                    @if ($productos[0]->lado !== '')
-                        <ul class="list-group list-group-horizontal mb-2">
-                            <li class="list-group-item detalleColor">Lado</li>
-                            <li class="list-group-item list-group-item-action">{{$productos[0]->lado}}</li>
-                        </ul>
-                    @endif
-
-                      @if ($productos[0]->empaque !== '')
-                        <ul class="list-group list-group-horizontal mb-2">
-                            <li class="list-group-item detalleColor">Empaque</li>
-                            <li class="list-group-item list-group-item-action">{{$productos[0]->empaque}}</li>
-                        </ul>
-                    @endif
-
-                    @if ($productos[0]->uxv !== '')
-                        <ul class="list-group list-group-horizontal mb-2">
-                            <li class="list-group-item detalleColor">UXV</li>
-                            <li class="list-group-item list-group-item-action">{{$productos[0]->uxv}}</li>
-                        </ul>
-                    @endif
-
-                     @if ($productos[0]->diametroInterior !== '')
-                        <ul class="list-group list-group-horizontal mb-2">
-                            <li class="list-group-item detalleColor">Diámetro interior</li>
-                            <li class="list-group-item list-group-item-action">{{$productos[0]->diametroInterior}}</li>
-                        </ul>
-                    @endif
-
-                      @if ($productos[0]->codigoEquivalente !== '')
-                        <ul class="list-group list-group-horizontal mb-2">
-                            <li class="list-group-item detalleColor">Código equivalente</li>
-                            <li class="list-group-item list-group-item-action">{{$productos[0]->codigoEquivalente}}</li>
-                        </ul>
-                    @endif
-
-                    @if ($productos[0]->oem !== '')
-                        <ul class="list-group list-group-horizontal mb-2">
-                            <li class="list-group-item detalleColor">Descripción</li>
-                            <li class="list-group-item list-group-item-action">{{$productos[0]->oem}}</li>
-                        </ul>
-                    @endif
-
-                      @if ($productos[0]->altura !== '')
-                        <ul class="list-group list-group-horizontal mb-2">
-                            <li class="list-group-item detalleColor">Altura</li>
-                            <li class="list-group-item list-group-item-action">{{$productos[0]->altura}}</li>
-                        </ul>
-                    @endif
-
-                      @if ($productos[0]->catalogo !== '')
-                        <ul class="list-group list-group-horizontal mb-2">
-                            <li class="list-group-item detalleColor">Catálogo</li>
-                            <li class="list-group-item list-group-item-action">{{$productos[0]->catalogo}}</li>
-                        </ul>
-                    @endif
-                </ul>
-            </div>
         </div>
     </main>
+
     <!-- Modal -->
     <div class="modal fade" id="imagenModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl" >

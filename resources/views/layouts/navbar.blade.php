@@ -32,7 +32,7 @@
                     <a class="nav-link" href="#">Videos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contacto</a>
+                    <a class="nav-link" href="{{route('contacto')}}">Contacto</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Privacidad</a>

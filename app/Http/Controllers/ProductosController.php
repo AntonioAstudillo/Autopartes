@@ -11,6 +11,7 @@ class ProductosController extends Controller
 {
     /**
      * Este metodo se encarga de obtener los productos de acuerdo al valor que el usuario ingreso dentro del input buscar producto
+     * Se podría decir que es la busqueda general
      */
     public function show(Request $request){
 
@@ -30,11 +31,18 @@ class ProductosController extends Controller
 
 
         //Hacemos consulta con la información que nos manden desde el input search
-        $resultados = DB::table('productos')
-                ->where('codigo', 'like', '%' . $valorBusqueda. '%')
-                ->orWhere('familia', 'like', '%' . $valorBusqueda. '%')
-                ->orWhere('grupo', 'like', '%' . $valorBusqueda. '%')
-                ->orWhere('posicion', 'like', '%' . $valorBusqueda. '%')
+
+
+        $resultados = DB::table('productos as p')
+                ->join('productodetalle as pd', 'pd.producto', '=', 'p.codigo')
+                ->select('p.codigo' , 'p.familia' , 'p.grupo' , 'p.descripcion' , 'p.posicion' , 'p.tipoCubrePolvo' , 'p.tipoPiston' , 'p.lado' , 'p.empaque' , 'p.uxv', 'p.diametroInterior' , 'p.oem' , 'p.altura' , 'p.imagen' , 'p.catalogo','pd.marca' , 'pd.submarca' , 'pd.modelo' , 'pd.fmsi' , 'pd.noBalata')
+                ->where('p.codigo', 'like', '%' . $valorBusqueda . '%')
+                ->orWhere('p.familia', 'like', '%' . $valorBusqueda . '%')
+                ->orWhere('p.grupo', 'like', '%' . $valorBusqueda . '%')
+                ->orWhere('p.posicion', 'like', '%' . $valorBusqueda . '%')
+                ->orWhere('pd.marca', 'like', '%' . $valorBusqueda . '%')
+                ->orWhere('pd.submarca', 'like', '%' . $valorBusqueda . '%')
+                ->groupBy('p.codigo')
                 ->paginate(21);
 
         if($resultados->total()<=0){
@@ -68,10 +76,20 @@ class ProductosController extends Controller
     }
 
 
+    /**
+     * Metodo usado para obtener la información detallada de un producto
+     */
     public function details($producto){
 
         $dataProducto = Producto::where('codigo' , $producto)->get();
         $detalleProducto = DB::table('productodetalle')->where('producto' , '=' , $producto)->get();
+
+
+        if($dataProducto->count()<=0 || $detalleProducto->count()<=0){
+            return view('404');
+        }
+
+
 
         return view('details' , ['productos' => $dataProducto , 'detalleProducto' => $detalleProducto]);
     }

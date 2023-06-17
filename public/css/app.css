@@ -8,6 +8,10 @@
 
  */
 
+textarea {
+    resize: none;
+}
+
 
 .detalleColor{
     background-color: #F05454 ;

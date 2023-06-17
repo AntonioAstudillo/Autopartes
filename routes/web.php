@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MenusController;
 use App\Http\Controllers\CatalogoController;
+use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\ProductosController;
 
 
@@ -15,6 +16,10 @@ Route::get('/menus/{menu}' , [MenusController::class , 'show'])->name('menus');
 
 //Ruta usada para mostrar los productos de acuerdo a un catalogo
 Route::get('/catalogos/{catalogo}' , [CatalogoController::class , 'show'])->name('catalogo');
+
+
+Route::get('/contacto' , [ContactoController::class , 'index'])->name('contacto');
+Route::post('/contacto' , [ContactoController::class , 'store']);
 
 Route::controller(ProductosController::class)->group(function(){
     //Ruta usada para hacer una busqueda especifica de un producto por medio de un valor dado por el usuario
