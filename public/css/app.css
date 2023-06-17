@@ -12,6 +12,16 @@ textarea {
     resize: none;
 }
 
+.h1Nosotros{
+    color: #F05454;
+    font-weight: bold;
+}
+
+
+.textParrafo{
+    color: #222831 ;
+    text-align: justify;
+}
 
 .detalleColor{
     background-color: #F05454 ;

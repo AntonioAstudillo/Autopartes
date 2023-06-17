@@ -6,7 +6,7 @@ use App\Http\Controllers\MenusController;
 use App\Http\Controllers\CatalogoController;
 use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\ProductosController;
-
+use App\Http\Controllers\VistasController;
 
 //Generamos la vista principal de la pagina
 Route::get('/', [HomeController::class , 'index'])->name('home');
@@ -16,10 +16,19 @@ Route::get('/menus/{menu}' , [MenusController::class , 'show'])->name('menus');
 
 //Ruta usada para mostrar los productos de acuerdo a un catalogo
 Route::get('/catalogos/{catalogo}' , [CatalogoController::class , 'show'])->name('catalogo');
-
-
 Route::get('/contacto' , [ContactoController::class , 'index'])->name('contacto');
 Route::post('/contacto' , [ContactoController::class , 'store']);
+
+
+Route::controller(VistasController::class)->group(function(){
+    Route::get('/nosotros','nosotros')->name('nosotros');
+    Route::get('/informacion' , 'informacion')->name('informacion');
+    Route::get('/politica' , 'politica')->name('politica');
+    Route::get('/privacidad' , 'privacidad')->name('privacidad');
+    Route::get('/descargar' , 'descargas')->name('descargas');
+    Route::get('/videos' , 'videos')->name('videos');
+});
+
 
 Route::controller(ProductosController::class)->group(function(){
     //Ruta usada para hacer una busqueda especifica de un producto por medio de un valor dado por el usuario

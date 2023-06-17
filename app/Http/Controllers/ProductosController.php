@@ -62,10 +62,11 @@ class ProductosController extends Controller
         $submarca =  str_replace('-',' ', $submarca);
 
         $productos = DB::table('productos as p')
-            ->select('p.*', 'pd.marca', 'pd.submarca')
+            ->select('p.codigo' , 'p.familia' , 'p.grupo' , 'p.descripcion' , 'p.posicion' , 'p.tipoCubrePolvo' , 'p.tipoPiston' , 'p.lado' , 'p.empaque' , 'p.uxv', 'p.diametroInterior' , 'p.oem' , 'p.altura' , 'p.imagen' , 'p.catalogo','pd.marca' , 'pd.submarca')
             ->join('productodetalle as pd', 'pd.producto', '=', 'p.codigo')
             ->where('pd.marca', 'like', '%'.$marca . '%')
             ->where('pd.submarca', 'like', '%'.$submarca.'%')
+            ->groupBy('p.codigo')
             ->paginate(21);
 
         if($productos->total()<=0){

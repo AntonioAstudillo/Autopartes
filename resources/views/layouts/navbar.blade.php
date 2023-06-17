@@ -13,9 +13,9 @@
                         Nosotros
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="nosostrosItem">
-                        <li><a class="dropdown-item" href="#">Quiénes somos</a></li>
-                        <li><a class="dropdown-item" href="#">Informacíón</a></li>
-                        <li><a class="dropdown-item" href="#">Política</a></li>
+                        <li><a class="dropdown-item" href="{{route('nosotros')}}">Quiénes somos</a></li>
+                        <li><a class="dropdown-item" href="{{route('informacion')}}">Informacíón</a></li>
+                        <li><a class="dropdown-item" href="{{route('politica')}}">Política</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -25,17 +25,17 @@
                     <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                         <li><a class="dropdown-item" href="{{route('catalogo' , ['catalogo' => 'Frenos'])}}">Frenos</a></li>
                         <li><a class="dropdown-item" href="{{route('catalogo' , ['catalogo' => 'Suspension'])}}">Suspensión</a></li>
-                        <li><a class="dropdown-item" href="#">Descargar</a></li>
+                        <li><a class="dropdown-item" href="{{route('descargas')}}">Descargar</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Videos</a>
+                    <a class="nav-link" href="{{route('videos')}}">Videos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('contacto')}}">Contacto</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Privacidad</a>
+                    <a class="nav-link" href="{{route('privacidad')}}">Privacidad</a>
                 </li>
             </ul>
             <span class="navbar-text ">

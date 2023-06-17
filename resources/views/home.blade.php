@@ -8,7 +8,7 @@
 @endsection
 
 @section('tituloPagina')
-  Búsqueda personalizada
+ Home
 @endsection
 
 
