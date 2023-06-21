@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'https://www.ajjacacsbro.online'),
 
     'asset_url' => env('ASSET_URL'),
 
@@ -169,6 +169,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Biscolab\ReCaptcha\ReCaptchaServiceProvider::class,
+        \SocialiteProviders\Manager\ServiceProvider::class,
     ])->toArray(),
 
     /*
@@ -185,6 +186,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
         'ReCaptcha' => Biscolab\ReCaptcha\Facades\ReCaptcha::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
     ])->toArray(),
 
 ];

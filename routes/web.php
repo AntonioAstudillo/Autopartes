@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MenusController;
 use App\Http\Controllers\CatalogoController;
 use App\Http\Controllers\ContactoController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\VistasController;
 
@@ -18,6 +20,19 @@ Route::get('/menus/{menu}' , [MenusController::class , 'show'])->name('menus');
 Route::get('/catalogos/{catalogo}' , [CatalogoController::class , 'show'])->name('catalogo');
 Route::get('/contacto' , [ContactoController::class , 'index'])->name('contacto');
 Route::post('/contacto' , [ContactoController::class , 'store']);
+
+Route::controller(LoginController::class)->group(function(){
+    Route::get('/login' , 'index')->name('login');
+    Route::post('/login' , 'validateLogin');
+});
+
+Route::middleware('auth')->group(function () {
+   Route::controller(AdminController::class)->group(function(){
+        Route::get('/dashboard/index' , 'index')->name('dashboard.index');
+    });
+});
+
+
 
 
 Route::controller(VistasController::class)->group(function(){

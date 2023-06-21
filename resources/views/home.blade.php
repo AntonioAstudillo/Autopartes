@@ -8,7 +8,7 @@
 @endsection
 
 @section('tituloPagina')
- Home
+ Inicio
 @endsection
 
 

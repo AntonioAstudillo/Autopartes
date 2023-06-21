@@ -7,8 +7,6 @@
 
 namespace App\Http\Controllers;
 
-
-
 class VistasController extends Controller
 {
 
