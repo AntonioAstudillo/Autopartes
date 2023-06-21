@@ -29,6 +29,7 @@ Route::controller(LoginController::class)->group(function(){
 Route::middleware('auth')->group(function () {
    Route::controller(AdminController::class)->group(function(){
         Route::get('/dashboard/index' , 'index')->name('dashboard.index');
+        Route::get('/dashboard/cerrarSesion' , 'cerrarSesion')->name('dashboard.cerrarSesion');
     });
 });
 
