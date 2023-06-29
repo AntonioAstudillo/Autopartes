@@ -10,22 +10,24 @@ $(document).ready(function () {
         responsiveClass: true,
         dots: false,
         nav: true,
-        autoplay: false,
+        autoplay: true,
         autoplayTimeout: 5000,
-        autoplayHoverPause: false,
+        autoplayHoverPause: true,
         responsive: {
             0: {
                 items: 1,
                 nav: true,
+                loop: true,
             },
             600: {
                 items: 3,
                 nav: false,
+                loop: true,
             },
             1000: {
                 items: 3,
                 nav: true,
-                loop: false,
+                loop: true,
             },
         },
     });
