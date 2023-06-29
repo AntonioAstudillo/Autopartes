@@ -34,6 +34,14 @@
                     </div>
                 @endif
 
+                @if(session('successMensaje'))
+                    <div class="container">
+                        <div class="alert alert-success" role="alert">
+                            ¡Producto agregado correctamente!
+                        </div>
+                    </div>
+                @endif
+
                 <livewire:table-productos />
 
             @include('dashboard.layouts.footer')

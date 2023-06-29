@@ -100,35 +100,53 @@ class ProductosController extends Controller
 
     public function store(Request $request){
         $data = $request->all();
+        $tam = count($data['marcas']); //cantidad de marcas que tiene el producto
 
-        echo '<pre>';
-          var_dump($data);
-        echo '</pre>';
+        DB::transaction(function () use ($tam , $data , $request) {
 
-        return;
+            for ($i=0; $i < $tam ; $i++) {
+                DB::table('productodetalle')->insert([
+                    'producto' => $data['codigo'],
+                    'marca' => $data['marcas'][$i],
+                    'submarca' =>$data['submarcas'][$i] ,
+                    'modelo' =>$data['modelo'][$i] ,
+                    'fmsi' =>$data['fmsi'][$i] ,
+                    'noBalata' => $data['noBalata'][$i],
+                ]);
+            }
 
-        $imagen = $this->saveImage($request);
 
-         DB::table('productos')->insert([
-            'codigo' => $data['codigo'],
-            'familia' => $data['familia'],
-            'grupo' => $data['grupo'],
-            'descripcion' => $data['descripcion'],
-            'posicion' => $data['posicion'],
-            'tipoCubrePolvo' => $data['tipoCubrePolvo'],
-            'tipoPiston' => $data['tipoPiston'],
-            'lado' => $data['lado'],
-            'empaque' => $data['empaque'],
-            'uxv' => $data['uxv'],
-            'diametroInterior' => $data['diametroInterior'],
-            'codigoEquivalente' => $data['codigoEquivalente'],
-            'oem' => $data['oem'],
-            'altura' => $data['altura'],
-            'imagen' => $imagen,
-            'catalogo' => $data['catalogo']
-         ]);
+            //Guardamos la imagen
+            $imagen = $this->saveImage($request);
 
-    }
+
+
+            DB::table('productos')->insert([
+                'codigo' => $data['codigo'],
+                'familia' => $data['familia'],
+                'grupo' => $data['grupo'],
+                'descripcion' => $data['descripcion'],
+                'posicion' => $data['posicion'],
+                'tipoCubrePolvo' => $data['tipoCubrePolvo'],
+                'tipoPiston' => $data['tipoPiston'],
+                'lado' => $data['lado'],
+                'empaque' => $data['empaque'],
+                'uxv' => $data['uxv'],
+                'diametroInterior' => $data['diametroInterior'],
+                'codigoEquivalente' => $data['codigoEquivalente'],
+                'oem' => $data['oem'],
+                'altura' => $data['altura'],
+                'imagen' => $imagen,
+                'catalogo' => $data['catalogo']
+            ]);
+
+        });
+
+
+        return back()->with('successMensaje', '¡La transacción se realizó con éxito!');
+
+
+    }//cierra funcion store
 
     private function saveImage(Request $request){
         $filename = $request->input('codigo'). time() . '.' . $request->file('imagenProducto')->getClientOriginalExtension(); // Obtiene la extensión del archivo
