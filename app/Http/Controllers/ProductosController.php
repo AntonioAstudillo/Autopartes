@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class ProductosController extends Controller
@@ -95,4 +96,46 @@ class ProductosController extends Controller
 
         return view('details' , ['productos' => $dataProducto , 'detalleProducto' => $detalleProducto]);
     }
+
+
+    public function store(Request $request){
+        $data = $request->all();
+
+        echo '<pre>';
+          var_dump($data);
+        echo '</pre>';
+
+        return;
+
+        $imagen = $this->saveImage($request);
+
+         DB::table('productos')->insert([
+            'codigo' => $data['codigo'],
+            'familia' => $data['familia'],
+            'grupo' => $data['grupo'],
+            'descripcion' => $data['descripcion'],
+            'posicion' => $data['posicion'],
+            'tipoCubrePolvo' => $data['tipoCubrePolvo'],
+            'tipoPiston' => $data['tipoPiston'],
+            'lado' => $data['lado'],
+            'empaque' => $data['empaque'],
+            'uxv' => $data['uxv'],
+            'diametroInterior' => $data['diametroInterior'],
+            'codigoEquivalente' => $data['codigoEquivalente'],
+            'oem' => $data['oem'],
+            'altura' => $data['altura'],
+            'imagen' => $imagen,
+            'catalogo' => $data['catalogo']
+         ]);
+
+    }
+
+    private function saveImage(Request $request){
+        $filename = $request->input('codigo'). time() . '.' . $request->file('imagenProducto')->getClientOriginalExtension(); // Obtiene la extensión del archivo
+        $directory = 'img/productos'; // Directorio público personalizado
+        $request->file('imagenProducto')->storeAs($directory, $filename, 'public');
+
+        return $filename;
+    }
+
 }

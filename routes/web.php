@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function () {
    Route::controller(AdminController::class)->group(function(){
         Route::get('/dashboard/index' , 'index')->name('dashboard.index');
         Route::get('/dashboard/cerrarSesion' , 'cerrarSesion')->name('dashboard.cerrarSesion');
+        Route::get('/dashboard/validateCodigo/{codigo}' , 'validarCodigoRepetido');
     });
 });
 
@@ -55,4 +56,9 @@ Route::controller(ProductosController::class)->group(function(){
 
     //Ruta usada para mostrar la información detallada de un producto
     Route::get('/details/{producto}' , 'details')->name('details');
+
+
+    Route::get('/producto/imagen' , 'imagen')->middleware('auth')->name('producto.imagen');
+
+    Route::post('/producto' , 'store')->middleware('auth')->name('producto.save');
 });

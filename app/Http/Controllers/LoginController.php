@@ -10,7 +10,13 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
+
+
     public function index(){
+
+        if(Auth::check()){
+           return redirect()->route('dashboard.index');
+        }
         return view('login');
     }
 

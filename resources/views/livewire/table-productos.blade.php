@@ -13,7 +13,7 @@
         </form>
 
         <div class="">
-            <button class="btn btn-success btn-sm mr-2"><i class="fa-solid fa-plus fa-sm"></i>Agregar producto</button>
+            <button id="btnAddProduct"  class="btn btn-success btn-sm mr-2"><i class="fa-solid fa-plus fa-sm"></i>Agregar producto</button>
         </div>
     </div>
 
@@ -44,7 +44,7 @@
                                     <div class="container d-flex justify-content-center">
                                         <button wire:click="showProducto('{{$producto->codigo}}')" class="btn btn-sm btn-info mr-2" ><i class="fa-solid fa-eye fa-sm"></i> Mostrar</button>
                                         <button wire:click ="editProducto('{{$producto->codigo}}')" class="btn btn-sm btn-warning mr-2" ><i class="fa-solid fa-pen-to-square fa-sm"></i>Editar</button>
-                                        <button class="btn btn-sm btn-primary mr-2" ><i class="fa-solid fa-camera fa-sm"></i>Imagen</button>
+                                        <button wire:click ="imageProduct('{{$producto->codigo}}')" class="btn btn-sm btn-primary mr-2" ><i class="fa-solid fa-camera fa-sm"></i>Imagen</button>
                                         <button wire:click ="deleteProducto('{{$producto->codigo}}')" class="btn btn-sm btn-danger mr-2" ><i class="fa-solid fa-trash fa-sm"></i>Eliminar</button>
                                     </div>
                                 </td>
@@ -291,7 +291,7 @@
                                     <select wire:model="grupo" id="inputState" class="form-control">
 
                                         <option  value="{{$grupo}}" selected>{{{$grupo}}}</option>
-                                        @if(count($grupos)>0)
+                                        @isset($grupos)
                                             @foreach ($grupos as $grupoProducto )
 
                                                 @isset($grupoProducto->subfamilia)
@@ -300,7 +300,7 @@
                                                     @endif;
                                                 @endisset
                                             @endforeach
-                                        @endif
+                                        @endisset
                                         </select>
                                 </div>
                                 <div class="form-group col-md-6">
@@ -317,7 +317,7 @@
                                     <label for="inputState">Familia</label>
                                     <select  wire:model="familia" class="form-control">
                                         <option value="{{$familia}}" selected>{{$familia}}</option>
-                                        @if(count($familias)>0)
+                                        @isset($familias)
                                             @foreach ($familias as $familiaProducto )
                                                 @isset($familiaProducto->familia)
                                                     @if($familiaProducto->familia !== $familia)
@@ -325,7 +325,7 @@
                                                     @endif;
                                                 @endisset
                                             @endforeach
-                                        @endif
+                                        @endisset
                                     </select>
                                 </div>
                             </div>
@@ -343,11 +343,11 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputCity">UXV</label>
-                                    <input wire:model="uxv" type="text" class="form-control" value="{{$uxv}}"  id="inputCity">
+                                    <input wire:model="uxv" type="text" class="form-control" value="{{$uxv}}">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputState">Diametro interior</label>
-                                     <input wire:model="diametroInterior" type="text" class="form-control" value="{{$diametroInterior}}"  id="inputCity">
+                                     <input wire:model="diametroInterior" type="text" class="form-control" value="{{$diametroInterior}}">
                                 </div>
                             </div>
 
@@ -355,11 +355,11 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputZip">Código equivalente</label>
-                                    <input wire:model="codigoEquivalente" type="text" class="form-control" value="{{$codigoEquivalente}}"  id="inputZip">
+                                    <input wire:model="codigoEquivalente" type="text" class="form-control" value="{{$codigoEquivalente}}" >
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputZip">Altura</label>
-                                    <input  wire:model="altura" type="text" class="form-control" value="{{$altura}}" id="inputZip">
+                                    <input  wire:model="altura" type="text" class="form-control" value="{{$altura}}">
                                 </div>
                             </div>
 
@@ -382,7 +382,7 @@
 
                                 <div class="form-group col-md-6">
                                     <label for="inputZip">OEM</label>
-                                    <input  wire:model="oem" type="text" class="form-control" value="{{$oem}}" id="inputZip">
+                                    <input  wire:model="oem" type="text" class="form-control" value="{{$oem}}">
                                 </div>
                             </div>
 
@@ -404,5 +404,65 @@
             </div>
         </div>
      @endif
+
+    @if ($isImage)
+           <div class="modal" tabindex="-1" role="dialog" style="display: block;">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Imagen producto: <span class="font-weight-bold">{{$codigo}}</span></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" wire:click="closeModal">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row"> </div>
+                         <div class="col-md-12 col-lg-12  col-xs-12 mt-3">
+                            <div class="card bg-dark text-white ">
+                                <div wire:loading.block>
+                                    <div class="container p-5">
+                                        <div class="text-center">
+                                            <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+                                                <span class="sr-only">Loading...</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div wire:loading.remove>
+                                    <img id="imgProductModal" src="{{asset('img/productos') . '/' . $imagen}}" class="card-img img-fluid img-thumbnail " height="50px">
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <form wire:submit.prevent="save">
+                            <div class="input-group mt-2">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroupFileAddon01"><i class="fa-solid fa-image"></i></span>
+                                </div>
+                                <div class="custom-file">
+                                    <input id="newFoto" wire:model="photo"  type="file" class="custom-file-input"
+                                    aria-describedby="inputGroupFileAddon01">
+                                    <label class="custom-file-label" for="newFoto">Elige una imagen...</label>
+                                </div>
+                            </div>
+
+                            <div class="row d-flex justify-content-center">
+                                @error('photo') <span class="text-danger text-center">La imagen no debe ser mayor a 1024 kilobytes</span> @enderror
+                                <span class="text-danger text-center">{{$error}}</span>
+                            </div>
+
+
+                            <button type="submit" class="btn btn-primary mt-2">Guardar foto</button>
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+     @endif
+
 </div>
 <!-- /.container-fluid -->

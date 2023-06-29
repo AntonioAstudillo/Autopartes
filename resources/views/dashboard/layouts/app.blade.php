@@ -18,6 +18,7 @@
 
     <!-- Custom styles for this template-->
     <link href="{{asset('css/dashboard/sb-admin.min.css')}}" rel="stylesheet">
+    @yield('linksPagina')
 
 
      @livewireStyles
@@ -26,13 +27,16 @@
 <body id="page-top">
  @yield('contenido')
 
-
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
  <script src="{{asset('js/dashboard/jquery.min.js')}}"></script>
  <script src="{{asset('js/dashboard/bootstrap.bundle.min.js')}}"></script>
  <script src="{{asset('js/dashboard/jquery.easing.min.js')}}"></script>
  <script src="{{asset('js/dashboard/sb-admin-2.min.js')}}"></script>
-  <script src="{{asset('js/dashboard/Chart.min.js')}}"></script>
-  @livewireScripts
+ <script src="{{asset('js/dashboard/Chart.min.js')}}"></script>
+
+
+ @yield('scriptsPagina')
+ @livewireScripts
 </body>
 
 </html>
