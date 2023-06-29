@@ -31,6 +31,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/dashboard/index' , 'index')->name('dashboard.index');
         Route::get('/dashboard/cerrarSesion' , 'cerrarSesion')->name('dashboard.cerrarSesion');
         Route::get('/dashboard/validateCodigo/{codigo}' , 'validarCodigoRepetido');
+        Route::get('/dashboard/configuracion' ,'configuracion')->name('dashboard.configuracion');
+        Route::post('/dashboard/configuracion' ,'updateUser')->name('dashboard.updateUser');
     });
 });
 

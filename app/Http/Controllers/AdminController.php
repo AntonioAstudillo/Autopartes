@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +18,7 @@ class AdminController extends Controller
         $this->middleware('auth');
     }
     /**
-     * Display a listing of the resource.
+     * Generamos la pagina principal del dashboard la cual corresponde a los productos
      */
     public function index()
     {
@@ -48,56 +50,39 @@ class AdminController extends Controller
         }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+    //Generamos la vista configuracion dentro del dashboard
+    public function configuracion(){
+        return view('dashboard.configuracion');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+    public function updateUser(Request $request){
+        $data = $request->all();
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+        $usuario = User::where('email' , '=' , auth()->user()->email)->first();
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+        if($data['password'] !== null){
+            $usuario->password = $data['password'];
+        }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
+        $usuario->user = $data['usuario'];
+        $usuario->email = $data['correo'];
+        $usuario->avatar = $data['avatar'];
+        $usuario->nombre = Str::title($data['nombre']);
+
+        $usuario->save();
+
+
+        return back()->with('mensajeSuccess' , '¡Usuario actualizado correctamente!');
 
     }
 
 
 
+
+
+
+    //Cerramos la sesion de usuario
     public function cerrarSesion(){
         Auth::logout();
         return redirect()->route('login');

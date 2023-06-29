@@ -27,12 +27,15 @@
 <body id="page-top">
  @yield('contenido')
 
+ @include('dashboard.layouts.modals.perfilUser')
+
  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
  <script src="{{asset('js/dashboard/jquery.min.js')}}"></script>
  <script src="{{asset('js/dashboard/bootstrap.bundle.min.js')}}"></script>
  <script src="{{asset('js/dashboard/jquery.easing.min.js')}}"></script>
  <script src="{{asset('js/dashboard/sb-admin-2.min.js')}}"></script>
  <script src="{{asset('js/dashboard/Chart.min.js')}}"></script>
+ <script src="{{asset('js/dashboard/main.js')}}"></script>
 
 
  @yield('scriptsPagina')
