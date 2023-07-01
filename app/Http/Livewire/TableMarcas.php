@@ -76,6 +76,11 @@ class TableMarcas extends Component
     }
 
 
+    public function deleteMarca($id){
+        DB::table('productodetalle')->where('id', '=', $id)->delete();
+    }
+
+
 
     public function closeModal(){
         $this->editModal = false;
