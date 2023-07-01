@@ -69,7 +69,7 @@
         <div class="d-flex justify-content-end">
                 <button id="btnUpdateUser" class="btn btn-primary mt-3" type="submit">Actualizar información</button>
         </div>
-        <a href="{{route('dashboard.index')}}" class="text-primary">Regresar</a>
+        <a href="{{ url()->previous() }}" class="text-primary">Regresar</a>
     </form>
 </div>
 

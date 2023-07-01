@@ -21,7 +21,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Gestionar:</h6>
                         <a class="collapse-item" href="{{route('dashboard.index')}}">Productos</a>
-                        <a class="collapse-item" href="cards.html">Marcas</a>
+                        <a class="collapse-item" href="{{route('dashboard.marcas')}}">Marcas</a>
                     </div>
                 </div>
             </li>

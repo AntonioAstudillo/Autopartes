@@ -56,6 +56,7 @@ class AdminController extends Controller
     }
 
 
+    //Actualizamos la informacion de un usuario
     public function updateUser(Request $request){
         $data = $request->all();
 
@@ -78,9 +79,10 @@ class AdminController extends Controller
     }
 
 
-
-
-
+    //Generamos la vista de marcas
+    public function marcas(){
+        return view('dashboard.marcas');
+    }
 
     //Cerramos la sesion de usuario
     public function cerrarSesion(){
