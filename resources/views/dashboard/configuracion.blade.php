@@ -46,30 +46,10 @@
             </div>
         </div>
 
-        <div class="form-row">
-             <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Avatar</label>
-            <select class="custom-select my-1 mr-sm-2" name="avatar" id="inlineFormCustomSelectPref">
-
-                @if(auth()->user()->avatar == 'A')
-                    <option value="A" selected>A</option>
-                    <option value="M">M</option>
-                    <option value="F">F</option>
-                @elseif (auth()->user()->avatar == 'M')
-                    <option value="M" selected>M</option>
-                    <option value="A">A</option>
-                    <option value="F">F</option>
-                @else
-                    <option value="F" selected>F</option>
-                    <option value="A">A</option>
-                    <option value="M">M</option>
-                @endif
-            </select>
-        </div>
-
         <div class="d-flex justify-content-end">
                 <button id="btnUpdateUser" class="btn btn-primary mt-3" type="submit">Actualizar información</button>
         </div>
-        <a href="{{ url()->previous() }}" class="text-primary">Regresar</a>
+        <a href="{{ route('dashboard.index') }}" class="text-primary">Regresar Inicio</a>
     </form>
 </div>
 

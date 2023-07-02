@@ -68,7 +68,6 @@ class AdminController extends Controller
 
         $usuario->user = $data['usuario'];
         $usuario->email = $data['correo'];
-        $usuario->avatar = $data['avatar'];
         $usuario->nombre = Str::title($data['nombre']);
 
         $usuario->save();
