@@ -64,4 +64,7 @@ Route::controller(ProductosController::class)->group(function(){
     Route::get('/producto/imagen' , 'imagen')->middleware('auth')->name('producto.imagen');
 
     Route::post('/producto' , 'store')->middleware('auth')->name('producto.save');
+
+    //Guardamos una marca a un cierto producto. Esta ruta se manda a llamar desde una petición asincrona en el archivo marcas.js
+    Route::post('/dashboard/saveMarca' , 'saveMarca')->middleware('auth');
 });

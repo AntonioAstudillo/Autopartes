@@ -148,6 +148,28 @@ class ProductosController extends Controller
 
     }//cierra funcion store
 
+
+
+    public function saveMarca(Request $request){
+        $data = $request->all();
+
+        $result = DB::table('productodetalle')->insert([
+            'producto' => $data['codigoProducto'],
+            'marca' => $data['marca'],
+            'submarca' => $data['submarca'],
+            'modelo' => $data['modelo'],
+            'fmsi' => $data['fmsi'],
+            'noBalata' => $data['noBalata']
+        ]);
+
+        if(!$result){
+            return response('' , 422);
+
+        }
+            return response('' , 200);
+
+    }
+
     private function saveImage(Request $request){
         $filename = $request->input('codigo'). time() . '.' . $request->file('imagenProducto')->getClientOriginalExtension(); // Obtiene la extensión del archivo
         $directory = 'img/productos'; // Directorio público personalizado

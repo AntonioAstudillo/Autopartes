@@ -41,6 +41,7 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
+    @include('dashboard.layouts.modals.addMarca')
     @include('dashboard.layouts.modals.cerrarSesion')
 @endsection
 

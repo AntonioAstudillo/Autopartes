@@ -65,5 +65,5 @@
 
 
 @section('scriptsPagina')
- <script src="{{asset('js/dashboard/dropzone.js')}}" type="module" ></script>
+ <script src="{{asset('js/dashboard/index.js')}}" type="module" ></script>
 @endsection

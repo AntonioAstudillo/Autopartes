@@ -277,18 +277,18 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="codigo">Código</label>
-                                    <input readonly type="text" name="codigo"  class="form-control" wire:model="codigo" >
+                                    <input readonly type="text" name="codigo"  class="form-control" wire:model.defer="codigo" >
                                 </div>
 
                                 <div class="form-group col-md-6">
                                     <label for="empaque">Empaque</label>
-                                    <input type="text" name="empaque" class="form-control" wire:model="empaque" >
+                                    <input type="text" name="empaque" class="form-control" wire:model.defer="empaque" >
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputState">Grupo</label>
-                                    <select wire:model="grupo" id="inputState" class="form-control">
+                                    <select wire:model.defer="grupo" id="inputState" class="form-control">
 
                                         <option  value="{{$grupo}}" selected>{{{$grupo}}}</option>
                                         @isset($grupos)
@@ -305,17 +305,17 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                 <label>Posición</label>
-                                <input wire:model="posicion" type="text" class="form-control" value="{{$posicion}}">
+                                <input wire:model.defer="posicion" type="text" class="form-control" value="{{$posicion}}">
                             </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>Tipo Cubre Polvo</label>
-                                    <input wire:model="tipoCubrePolvo" type="text" class="form-control" value="{{$tipoCubrePolvo}}">
+                                    <input wire:model.defer="tipoCubrePolvo" type="text" class="form-control" value="{{$tipoCubrePolvo}}">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputState">Familia</label>
-                                    <select  wire:model="familia" class="form-control">
+                                    <select  wire:model.defer="familia" class="form-control">
                                         <option value="{{$familia}}" selected>{{$familia}}</option>
                                         @isset($familias)
                                             @foreach ($familias as $familiaProducto )
@@ -332,22 +332,22 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputZip">Tipo piston</label>
-                                    <input wire:model="tipoPiston"  type="text" class="form-control" value="{{$tipoPiston}}">
+                                    <input wire:model.defer="tipoPiston"  type="text" class="form-control" value="{{$tipoPiston}}">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputZip">Lado</label>
-                                    <input  wire:model="lado" type="text" class="form-control" value="{{$lado}}" >
+                                    <input  wire:model.defer="lado" type="text" class="form-control" value="{{$lado}}" >
                                 </div>
                             </div>
 
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputCity">UXV</label>
-                                    <input wire:model="uxv" type="text" class="form-control" value="{{$uxv}}">
+                                    <input wire:model.defer="uxv" type="text" class="form-control" value="{{$uxv}}">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputState">Diametro interior</label>
-                                     <input wire:model="diametroInterior" type="text" class="form-control" value="{{$diametroInterior}}">
+                                     <input wire:model.defer="diametroInterior" type="text" class="form-control" value="{{$diametroInterior}}">
                                 </div>
                             </div>
 
@@ -355,11 +355,11 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputZip">Código equivalente</label>
-                                    <input wire:model="codigoEquivalente" type="text" class="form-control" value="{{$codigoEquivalente}}" >
+                                    <input wire:model.defer="codigoEquivalente" type="text" class="form-control" value="{{$codigoEquivalente}}" >
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputZip">Altura</label>
-                                    <input  wire:model="altura" type="text" class="form-control" value="{{$altura}}">
+                                    <input  wire:model.defer="altura" type="text" class="form-control" value="{{$altura}}">
                                 </div>
                             </div>
 
@@ -367,7 +367,7 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputZip">Catálogo</label>
-                                    <select wire:model="catalogo" class="form-control">
+                                    <select wire:model.defer="catalogo" class="form-control">
                                         @if ($catalogo == 'Frenos')
                                             <option  value="{{$catalogo}}" selected>{{$catalogo}}</option>
                                             <option   value="Suspension">Suspension</option>
@@ -382,14 +382,14 @@
 
                                 <div class="form-group col-md-6">
                                     <label for="inputZip">OEM</label>
-                                    <input  wire:model="oem" type="text" class="form-control" value="{{$oem}}">
+                                    <input  wire:model.defer="oem" type="text" class="form-control" value="{{$oem}}">
                                 </div>
                             </div>
 
                             <div class="form-row">
                                  <div class="form-group col-md-12">
                                     <label for="exampleFormControlTextarea1">Descripción</label>
-                                    <textarea class="form-control" wire:model="descripcion" placeholder="No tiene descripción"></textarea>
+                                    <textarea class="form-control" wire:model.defer="descripcion" placeholder="No tiene descripción"></textarea>
                                 </div>
                             </div>
 

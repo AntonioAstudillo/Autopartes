@@ -39,7 +39,7 @@ class TableMarcas extends Component
                 ->orWhere('noBalata', 'like', '%'.$this->search.'%')
                 ->paginate(10);
         }else{
-            $data = DB::table('productodetalle')->paginate(10);
+            $data = DB::table('productodetalle')->orderBy('producto')->paginate(10);
         }
 
         return view('livewire.table-marcas' , ['productos' => $data]);

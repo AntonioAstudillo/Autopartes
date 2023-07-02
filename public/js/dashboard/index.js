@@ -85,24 +85,6 @@ function validateDataProducto() {
 }
 
 function saveProduct() {
-    // let codigo = document.getElementById("codigoAdd").value;
-    // let empaque = document.getElementById("empaqueAdd").value;
-    // let grupo = document.getElementById("grupoAdd").value;
-    // let posicion = document.getElementById("posicionAdd").value;
-    // let tipoCubrePolvo = document.getElementById("tipoCubrePolvoAdd").value;
-    // let familia = document.getElementById("familiaAdd").value;
-    // let tipoPiston = document.getElementById("tipoPistonAdd").value;
-    // let lado = document.getElementById("ladoAdd").value;
-    // let uxv = document.getElementById("uxvAdd").value;
-    // let diametroInterior = document.getElementById("diametroInteriorAdd").value;
-    // let codigoEquivalente = document.getElementById(
-    //     "codigoEquivalenteAdd"
-    // ).value;
-    // let altura = document.getElementById("alturaAdd").value;
-    // let oem = document.getElementById("oemAdd").value;
-    // let catalogo = document.getElementById("catalogoAdd").value;
-    // let descripcion = document.getElementById("descripcionAdd").value;
-
     document.getElementById("formAddProduct").submit();
 }
 

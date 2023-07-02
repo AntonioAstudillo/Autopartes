@@ -81,7 +81,16 @@ class AdminController extends Controller
 
     //Generamos la vista de marcas
     public function marcas(){
-        return view('dashboard.marcas');
+        $marcas = DB::table('productoDetalle')->select('marca')->distinct('marca')->orderBy('marca')->where('marca', '<>' , '')->get();
+        $submarcas = DB::table('productoDetalle')
+        ->select('submarca')
+        ->distinct('submarca')
+        ->orderBy('submarca')
+        ->where('submarca', '<>' , '')
+        ->where('submarca', '<>' , '-')
+        ->where('submarca', '<>' , '.')
+        ->get();
+        return view('dashboard.marcas' , ['marcas' => $marcas , 'submarcas' =>$submarcas]);
     }
 
     //Cerramos la sesion de usuario
