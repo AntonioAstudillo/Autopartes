@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Log;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -98,6 +99,7 @@ class ProductosController extends Controller
     }
 
 
+    //Metodo para crear un producto.
     public function store(Request $request){
         $data = $request->all();
         $tam = count($data['marcas']); //cantidad de marcas que tiene el producto
@@ -140,6 +142,11 @@ class ProductosController extends Controller
                 'catalogo' => $data['catalogo']
             ]);
 
+
+
+            $objLog = new Log();
+            $objLog->createProduct($data['codigo']);
+
         });
 
 
@@ -166,7 +173,11 @@ class ProductosController extends Controller
             return response('' , 422);
 
         }
-            return response('' , 200);
+
+        $objLog = new Log();
+        $objLog->saveMarca($data['codigoProducto']);
+
+        return response('' , 200);
 
     }
 

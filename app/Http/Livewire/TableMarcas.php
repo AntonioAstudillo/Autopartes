@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Log;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
@@ -72,12 +73,17 @@ class TableMarcas extends Component
         DB::table('productodetalle')
               ->where('id', $this->idRegistro)
               ->update(['marca' => $this->marca , 'submarca' => $this->submarca, 'modelo' => $this->modelo, 'fmsi' => $this->fmsi, 'noBalata' => $this->noBalata ]);
+
+        $objLog = new Log();
+        $objLog->editMarca($this->idRegistro);
         $this->closeModal();
     }
 
 
     public function deleteMarca($id){
         DB::table('productodetalle')->where('id', '=', $id)->delete();
+        $objLog = new Log();
+        $objLog->deleteMarca($this->id);
     }
 
 

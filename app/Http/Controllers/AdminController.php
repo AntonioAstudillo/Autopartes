@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\RedirectResponse;
+use App\Log;
 
 class AdminController extends Controller
 {
@@ -72,9 +72,19 @@ class AdminController extends Controller
 
         $usuario->save();
 
+        $objLog = new Log();
+        $objLog->updateUser();
+
 
         return back()->with('mensajeSuccess' , '¡Usuario actualizado correctamente!');
 
+    }
+
+    //generamos la vista log dentro del dashboard
+    public function log(){
+
+
+        return view('dashboard.log');
     }
 
 

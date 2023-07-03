@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Log;
 use Livewire\Component;
 use App\Models\Productos;
 use Livewire\WithPagination;
@@ -143,12 +144,17 @@ class TableProductos extends Component
             ]
         );
 
+        $objLog = new Log();
+        $objLog->updateProducto($this->codigo);
+
         $this->closeModal();
     }
 
     public function deleteProducto($producto){
         DB::table('productos')->where('codigo', '=', $producto)->delete();
         DB::table('productodetalle')->where('producto', '=', $producto)->delete();
+        $objLog = new Log();
+        $objLog->deleteProducto($producto);
     }
 
 
