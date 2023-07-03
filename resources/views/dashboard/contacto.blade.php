@@ -6,7 +6,7 @@
 @endsection
 
 @section('title')
-  Log
+  Contacto
 @endsection
 
 @section('contenido')
@@ -27,7 +27,7 @@
             @include('dashboard.layouts.topbar')
 
 
-            <livewire:log-table />
+            <livewire:contacto-table />
 
             @include('dashboard.layouts.footer')
 
@@ -49,5 +49,5 @@
 
 
 @section('scriptsPagina')
-
+ <script src="{{asset('js/dashboard/marcas.js')}}" type="module" ></script>
 @endsection

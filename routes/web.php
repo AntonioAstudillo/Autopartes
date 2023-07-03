@@ -35,6 +35,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/dashboard/configuracion' ,'updateUser')->name('dashboard.updateUser');
         Route::get('/dashboard/marcas' ,'marcas')->name('dashboard.marcas');
         Route::get('/dashboard/log' , 'log')->name('dashboard.log');
+        Route::get('/dashboard/contacto' , 'contacto')->name('dashboard.contacto');
     });
 });
 

@@ -82,9 +82,12 @@ class AdminController extends Controller
 
     //generamos la vista log dentro del dashboard
     public function log(){
-
-
         return view('dashboard.log');
+    }
+
+
+    public function contacto(){
+        return view('dashboard.contacto');
     }
 
 
