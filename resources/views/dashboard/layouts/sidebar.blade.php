@@ -39,7 +39,7 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="login.html">Usuarios</a>
+                        <a class="collapse-item" href="{{route('dashboard.usuarios')}}">Usuarios</a>
                         <a class="collapse-item" href="{{route('dashboard.log')}}">Log</a>
                         <a class="collapse-item" href="{{route('dashboard.contacto')}}">Contacto</a>
                     </div>

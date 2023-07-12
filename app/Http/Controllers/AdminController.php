@@ -105,6 +105,16 @@ class AdminController extends Controller
         return view('dashboard.marcas' , ['marcas' => $marcas , 'submarcas' =>$submarcas]);
     }
 
+
+
+    /**
+     * Generamos la vista de dashboard/usuarios
+     */
+
+    public function usuarios(){
+        return view('dashboard.usuarios');
+    }
+
     //Cerramos la sesion de usuario
     public function cerrarSesion(){
         Auth::logout();

@@ -36,6 +36,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/dashboard/marcas' ,'marcas')->name('dashboard.marcas');
         Route::get('/dashboard/log' , 'log')->name('dashboard.log');
         Route::get('/dashboard/contacto' , 'contacto')->name('dashboard.contacto');
+        Route::get('/dashboard/usuarios' , 'usuarios')->name('dashboard.usuarios');
     });
 });
 
