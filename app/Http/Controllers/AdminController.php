@@ -110,9 +110,17 @@ class AdminController extends Controller
     /**
      * Generamos la vista de dashboard/usuarios
      */
-
     public function usuarios(){
         return view('dashboard.usuarios');
+    }
+
+
+    /**
+     * Generamos la vista de estadisticas
+     */
+
+    public function charts(){
+        return view('dashboard.charts');
     }
 
     //Cerramos la sesion de usuario

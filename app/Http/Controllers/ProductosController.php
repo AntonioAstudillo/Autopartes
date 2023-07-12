@@ -189,4 +189,21 @@ class ProductosController extends Controller
         return $filename;
     }
 
+
+
+
+    /**
+     * Método usado para generar la informacion que utilizaremos dentro del modulo administradores/charts
+     * este método se manda a llamar desde una petición asincrona
+     */
+
+    public function marcasCharts(){
+        $resultados = DB::table('productodetalle')
+                ->select('marca', DB::raw('COUNT(*) as cantidad'))
+                ->groupBy('marca')
+                ->orderByDesc('cantidad')
+                ->get();
+        return response()->json($resultados);
+    }
+
 }

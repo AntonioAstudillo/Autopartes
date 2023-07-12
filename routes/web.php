@@ -37,6 +37,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/dashboard/log' , 'log')->name('dashboard.log');
         Route::get('/dashboard/contacto' , 'contacto')->name('dashboard.contacto');
         Route::get('/dashboard/usuarios' , 'usuarios')->name('dashboard.usuarios');
+        Route::get('/dashboard/charts' , 'charts')->name('dashboard.charts');
     });
 });
 
@@ -70,4 +71,8 @@ Route::controller(ProductosController::class)->group(function(){
 
     //Guardamos una marca a un cierto producto. Esta ruta se manda a llamar desde una petición asincrona en el archivo marcas.js
     Route::post('/dashboard/saveMarca' , 'saveMarca')->middleware('auth');
+
+
+    //Ruta usada para generar la grafica dentro de dashboard/charts
+     Route::get('/dashboard/getDataChart' , 'marcasCharts');
 });
